@@ -38,28 +38,19 @@
         <div id="quiz" style="display: none">
       
           <div id="question"></div>
-          <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-
-
-           <p class="lead">This is a simple hero unit, a simple           jumbotron-style component for calling extra attention to    featured
-              content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space    content out within the larger container.
-
-        </p>
+          
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn  more</a>
       </div>
       
-          <div id="choices">
+          <div id= "choices">
       
             <div class="choice" id="A" onclick="checkAnswer('A')"></div>
       
             <div class="choice" id="B" onclick="checkAnswer('B')"></div>
       
             <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-      
           </div>
+         
       
           <div id="timer">
       
@@ -72,11 +63,7 @@
       
           <div id="progress"></div>
       
-        </div>
-      
         <div id="scoreContainer" style="display: none"></div>
-      
-      </div>
       
       <script src="quiz.js">
 
@@ -90,97 +77,95 @@
 
         const question = document.getElementById("question");
 
-        const choiceA = document.getElementById("A");
+        const A = document.getElementById("A");
 
-        const choiceB = document.getElementById("B");
+        const B = document.getElementById("B");
 
-        const choiceC = document.getElementById("C");
+        const C = document.getElementById("C");
 
         const counter = document.getElementById("counter");
 
-        const timeGauge = document.getElementById("timeGauge");
 
         const progress = document.getElementById("progress");
 
         const scoreDiv = document.getElementById("scoreContainer");
 
-        // create our questions
+        // create questions
 
-        let questions = [
+        
 
           {
 
-            question: "What does HTML stand for?",
+        let question1 =  "What does HTML stand for?"
+        let Answers = ['A', 'B', 'C'] 
+
+
+            A = "hyper-text-markup-language",
+
+            B = "hotmail"
+
+            C =  "how to make laugh"
+
+            answer= [A]
+
+          } {
+
+        let question2 = "What does CSS stand for?"
+        let Answers = ['A', 'B', 'C'] 
+        {
+            
+
+
+            A= "California school system",
+
+            B= "Cascading style sheets",
+
+            C= "Computer safe system",
+
+            answer=  [B]
+        }
+        
+          {
+
+        let question3 = "What does ECMA stand for?"
 
 
 
-            choiceA: "hyper-text-markup-language",
+            A = "European Computer Manufacturers              Association Script",
 
-            choiceB: "hotmail",
+            B = "Expected Computer Machine Answer",
 
-            choiceC: "how to make laugh",
+            C = "Even Computers Must Atone",
 
-            correct: "A"
-
-          }, {
-
-            question: "What does CSS stand for?",
-
-
-
-            choiceA: "california school system",
-
-            choiceB: "cascading sheet style",
-
-            choiceC: "computer safe system",
-
-            correct: "B"
-
-          }, {
-
-            question: "What does JS stand for?",
-
-
-
-            choiceA: "john smith",
-
-            choiceB: "just simple",
-
-            choiceC: "javascript",
-
-            correct: "C"
+            answer = [A]
 
           }
 
-        ];
+        ]
 
-        //now after we created the questions, we need to create two variables, the first one is the index of the starting question(the first question), which is ZERO ( the first element's index of an array is ZERO ). and the second is the index of the last question.
+        
         const lastQuestion = questions.length - 1;
 
         let runningQuestion = 0;
 
-        //Let's now create a function that will render a given question. we call this function: questionRender.
-
-        // render a question
 
         function renderQuestion() {
 
-          let q = questions[runningQuestion];
+          let q1 = question1
+          let q2 = question2
 
 
 
-          question.innerHTML = "<p>" + q.question + "</p>";
+          question.innerHTML = "<p>" + q.question + "</p>"
 
-          qImg.innerHTML = "<img src=" + q.imgSrc + ">";
+          A.innerHTML = question1.answer(A)
 
-          choiceA.innerHTML = q.choiceA;
+          B.innerHTML = question2.answer(B)
 
-          choiceB.innerHTML = q.choiceB;
-
-          choiceC.innerHTML = q.choiceC;
+          C.innerHTML = question3.answer(A)
 
         }
-        // render progress
+
 
         function renderProgress() {
 
@@ -191,10 +176,10 @@
           }
 
         }
-        //When the page is loaded, the user must click on the "Start Quiz!" button to start the quiz, so we must add an event listener to that button.
+
 
         start.addEventListener("click", startQuiz);
-
+console.log('')
       </script>
   
 
