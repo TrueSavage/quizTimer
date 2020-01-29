@@ -1,189 +1,203 @@
-<!DOCTYPE html>
 
-<html lang="en">
+  <!doctype html>
+  <html lang="en">
+  
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+    <title>Quiz</title>
+  </head>
+  
+  <body>
+    <h1 style="justify-content: center; background-color: cornflowerblue; font-size: 90px;">Code Quiz</h1>
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
 
-<head>
-
-  <meta charset="UTF-8">
-
-  <title>Quiz</title>
-
-  <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-  <div id="container">
-
-    <div id="start">Code Quiz!</div>
-    <button type="button">START</button>
-
-    <div id="quiz" style="display: none">
-
-      <div id="question"></div>
+      <div id="container">
+      
+        <div id="start"></div>
+        <h5> Ready to Start?</h5>
+        <button class="btn btn-click btn-xlg " id="startQuiz" style="border-color: blue; font-size: 35px;">Click Me!!!!</button>
+      
+        <div id="quiz" style="display: none">
+      
+          <div id="question"></div>
+          <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
 
 
-      <div id="choices">
+           <p class="lead">This is a simple hero unit, a simple           jumbotron-style component for calling extra attention to    featured
+              content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space    content out within the larger container.
 
-        <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-
-        <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-
-        <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-
+        </p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn  more</a>
       </div>
-
-      <div id="timer">
-
-        <div id="counter"></div>
-
-        <div id="btimeGauge"></div>
-
-        <div id="timeGauge"></div>
-
+      
+          <div id="choices">
+      
+            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+      
+            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+      
+            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+      
+          </div>
+      
+          <div id="timer">
+      
+            <div id="counter"></div>
+      
+      
+            <div id="timeGauge"></div>
+      
+          </div>
+      
+          <div id="progress"></div>
+      
+        </div>
+      
+        <div id="scoreContainer" style="display: none"></div>
+      
       </div>
-
-      <div id="progress"></div>
-
-    </div>
-
-    <div id="scoreContainer" style="display: none"></div>
-
-  </div>
-
-  <script src="quiz.js">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // select all elements
-
-    const start = document.getElementById("start");
-
-    const quiz = document.getElementById("quiz");
-
-    const question = document.getElementById("question");
-
-    const choiceA = document.getElementById("A");
-
-    const choiceB = document.getElementById("B");
-
-    const choiceC = document.getElementById("C");
-
-    const counter = document.getElementById("counter");
-
-    const timeGauge = document.getElementById("timeGauge");
-
-    const progress = document.getElementById("progress");
-
-    const scoreDiv = document.getElementById("scoreContainer");
-  
-  // create our questions
-
-  let questions = [
-
-    {
-
-      question: "What does HTML stand for?",
-
       
-
-      choiceA: "hyper-text-markup-language",
-
-      choiceB: "hotmail",
-
-      choiceC: "how to make laugh",
-
-      correct: "A"
-
-    }, {
-
-      question: "What does CSS stand for?",
-
-      
-
-      choiceA: "california school system",
-
-      choiceB: "cascading sheet style",
-
-      choiceC: "computer safe system",
-
-      correct: "B"
-
-    }, {
-
-      question: "What does JS stand for?",
-
-      
-
-      choiceA: "john smith",
-
-      choiceB: "just simple",
-
-      choiceC: "javascript",
-
-      correct: "C"
-
-    }
-
-  ];
-
-  //now after we created the questions, we need to create two variables, the first one is the index of the starting question(the first question), which is ZERO ( the first element's index of an array is ZERO ). and the second is the index of the last question.
-  const lastQuestion = questions.length - 1;
-
-  let runningQuestion = 0;
-
-  //Let's now create a function that will render a given question. we call this function: questionRender.
-
-  // render a question
-
-    function renderQuestion() {
-
-      let q = questions[runningQuestion];
+      <script src="quiz.js">
 
 
 
-      question.innerHTML = "<p>" + q.question + "</p>";
+        // select all elements
 
-      qImg.innerHTML = "<img src=" + q.imgSrc + ">";
+        const start = document.getElementById("start");
 
-      choiceA.innerHTML = q.choiceA;
+        const quiz = document.getElementById("quiz");
 
-      choiceB.innerHTML = q.choiceB;
+        const question = document.getElementById("question");
 
-      choiceC.innerHTML = q.choiceC;
+        const choiceA = document.getElementById("A");
 
-    }
-    // render progress
+        const choiceB = document.getElementById("B");
 
-      function renderProgress() {
+        const choiceC = document.getElementById("C");
 
-        for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
+        const counter = document.getElementById("counter");
 
-          progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
+        const timeGauge = document.getElementById("timeGauge");
+
+        const progress = document.getElementById("progress");
+
+        const scoreDiv = document.getElementById("scoreContainer");
+
+        // create our questions
+
+        let questions = [
+
+          {
+
+            question: "What does HTML stand for?",
+
+
+
+            choiceA: "hyper-text-markup-language",
+
+            choiceB: "hotmail",
+
+            choiceC: "how to make laugh",
+
+            correct: "A"
+
+          }, {
+
+            question: "What does CSS stand for?",
+
+
+
+            choiceA: "california school system",
+
+            choiceB: "cascading sheet style",
+
+            choiceC: "computer safe system",
+
+            correct: "B"
+
+          }, {
+
+            question: "What does JS stand for?",
+
+
+
+            choiceA: "john smith",
+
+            choiceB: "just simple",
+
+            choiceC: "javascript",
+
+            correct: "C"
+
+          }
+
+        ];
+
+        //now after we created the questions, we need to create two variables, the first one is the index of the starting question(the first question), which is ZERO ( the first element's index of an array is ZERO ). and the second is the index of the last question.
+        const lastQuestion = questions.length - 1;
+
+        let runningQuestion = 0;
+
+        //Let's now create a function that will render a given question. we call this function: questionRender.
+
+        // render a question
+
+        function renderQuestion() {
+
+          let q = questions[runningQuestion];
+
+
+
+          question.innerHTML = "<p>" + q.question + "</p>";
+
+          qImg.innerHTML = "<img src=" + q.imgSrc + ">";
+
+          choiceA.innerHTML = q.choiceA;
+
+          choiceB.innerHTML = q.choiceB;
+
+          choiceC.innerHTML = q.choiceC;
 
         }
+        // render progress
 
-      }
-      //When the page is loaded, the user must click on the "Start Quiz!" button to start the quiz, so we must add an event listener to that button.
+        function renderProgress() {
 
-      start.addEventListener("click", startQuiz);
+          for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
 
-  </script>
+            progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
 
-</body>
+          }
 
-</html>
+        }
+        //When the page is loaded, the user must click on the "Start Quiz!" button to start the quiz, so we must add an event listener to that button.
+
+        start.addEventListener("click", startQuiz);
+
+      </script>
+  
+
+    </body>
+  
+  </html>
