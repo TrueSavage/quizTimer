@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
   
     <title>Quiz</title>
   </head>
@@ -29,10 +30,10 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
    
-      <div id="container">
+      <div id="flex-container">
       
         <div id="start"></div>
-        <h5> Ready to Start?</h5>
+        <h6> Press Below When You are Ready to Start?</h6>
         <button class="btn btn-click btn-xlg " id="startQuiz" style="border-color: blue; font-size: 35px;">Click Me!!!!</button>
       
         <div id="quiz" style="display: none">
@@ -43,6 +44,107 @@
       </div>
       
           <div id= "choices">
+            <div class="card text-white bg-primary mb-3" style="max-width: 60rem; height: 700px;">
+              <div class="card-header"></div>
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                </p>
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="card text-white bg-secondary mb-3" style="max-width:50rem; height: 500px;">
+              <div class="card-header"></div>
+              <div class="card-body">
+                <h5 class="card-title">QUESTION 1</h5>
+                <p class="card-text">What does HTML stand for?
+                </p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+
+              </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 50rem; height: 500px;">
+              <div class="card-header"></div>
+              <div class="card-body">
+                <h5 class="card-title">QUESTION 2</h5>
+                <p class="card-text">What does CSS StandS For???
+                </p>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+              </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 50rem; height: 500px;">
+              <div class="card-header"></div>
+              <div class="card-body">
+                <h5 class="card-title">QUESTION 3</h5>
+                <p class="card-text">What does ECMA stand for????
+                </p>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+            </div>
+
+            <div class="card text-white bg-warning mb-3" style="max-width: 50rem; height: 500px;">
+              <div class="card-header"></div>
+              <div class="card-body">
+                <h5 class="card-title">QUESTION 4</h5>
+                <p class="card-text">NEED another question HERE???
+                </p>
+              </div>
+            </div>
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Info card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+              </div>
+            </div>
       
             <div class="choice" id="A" onclick="checkAnswer('A')"></div>
       
